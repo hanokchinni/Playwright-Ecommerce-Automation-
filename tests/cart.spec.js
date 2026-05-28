@@ -15,7 +15,7 @@ test.describe('test',()=>{
         await expect(homePage.logo).toBeVisible();
     })
     
-    test.only('Tc12: Add products to cart', async ({page})=>{
+    test('Tc12: Add products to cart', async ({page})=>{
 
         const homePage = new HomePage(page);
         const productPage = new ProductPage(page);
