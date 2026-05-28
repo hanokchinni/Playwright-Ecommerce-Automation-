@@ -50,7 +50,9 @@ export default defineConfig({
       name: 'brave',
       use: {
         browserName: 'chromium',
-        executablePath: 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe',
+        executablePath: process.env.CI 
+          ? undefined  // use default chromium on CI
+          : 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe',
         headless: false,
         viewport: { width: 1280, height: 720 },
         launchOptions: {
