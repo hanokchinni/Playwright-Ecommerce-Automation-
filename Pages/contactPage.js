@@ -18,7 +18,7 @@ class ContactPage {
     this.submitBtn           = page.locator('input[data-qa="submit-button"]');
 
     // ── Success Message ───────────────────────────────────────
-    this.successMsg          = page.locator('div.alert-success ');
+    this.successMsg = page.locator('div.alert-success', { hasText: 'You have been successfully subscribed!' });
 
     // ── Home Button ───────────────────────────────────────────
     this.homeBtn             = page.locator('a:has-text("Home")');
