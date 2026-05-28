@@ -26,79 +26,79 @@ test.describe('Checkout', () => {
     await expect(homePage.logo).toBeVisible();
   });
 
-      test.skip('TC14:Place Order:Register with Checkout',async ({page})=>{
+      // test('TC14:Place Order:Register with Checkout',async ({page})=>{
 
-        const homePage = new HomePage(page)
-        const productPage = new ProductPage(page)
-        const cartPage     = new CartPage(page);
-        const loginPage    = new LoginPage(page);
-        const registerPage = new RegisterPage(page);
-        const checkoutPage = new CheckoutPage(page);
-        const user         = userData.validUser;
-        const payment      = userData.payment;
+      //   const homePage = new HomePage(page)
+      //   const productPage = new ProductPage(page)
+      //   const cartPage     = new CartPage(page);
+      //   const loginPage    = new LoginPage(page);
+      //   const registerPage = new RegisterPage(page);
+      //   const checkoutPage = new CheckoutPage(page);
+      //   const user         = userData.validUser;
+      //   const payment      = userData.payment;
 
-        // selecting product to cart
-        await addProductAndGoToCart(page, homePage, productPage, cartPage);
+      //   // selecting product to cart
+      //   await addProductAndGoToCart(page, homePage, productPage, cartPage);
 
-        //verifying the cart page is displayed
-        await expect(cartPage.cartHeading).toBeVisible()
+      //   //verifying the cart page is displayed
+      //   await expect(cartPage.cartHeading).toBeVisible()
 
-        //proceed to checkout
-        await cartPage.proceedToCheckout();
+      //   //proceed to checkout
+      //   await cartPage.proceedToCheckout();
       
 
-        //click register /login
+      //   //click register /login
 
-        await cartPage.clickRegisterLogin();
-        await homePage.closeAdIfPresent();
+      //   await cartPage.clickRegisterLogin();
+      //   await homePage.closeAdIfPresent();
 
-        //fill all details in signup and create account
-        await loginPage.signup(user.name,user.email);
-        await homePage.closeAdIfPresent();
-        await registerPage.fillAccountInfo(user);
-        await registerPage.fillAddressInfo(user);
-        await registerPage.submitForm();
+      //   //fill all details in signup and create account
+      //   await loginPage.signup(user.name,user.email);
+      //   await homePage.closeAdIfPresent();
+      //   await registerPage.fillAccountInfo(user);
+      //   await registerPage.fillAddressInfo(user);
+      //   await registerPage.submitForm();
 
-        // - Verify account created
-        await expect(registerPage.accountCreatedMsg).toBeVisible();
-        await registerPage.continueAfterCreation(); 
+      //   // - Verify account created
+      //   await expect(registerPage.accountCreatedMsg).toBeVisible();
+      //   await registerPage.continueAfterCreation(); 
 
-        //-verify logged in udername
-        await expect(homePage.loggedUser).toBeVisible()
+      //   //-verify logged in udername
+      //   await expect(homePage.loggedUser).toBeVisible()
 
-        // Step 8 - Go to Cart
-        await homePage.navigateToCart();
-        await homePage.closeAdIfPresent();
+      //   // Step 8 - Go to Cart
+      //   await homePage.navigateToCart();
+      //   await homePage.closeAdIfPresent();
 
-        // Step 9 - Proceed to Checkout
-        await cartPage.proceedToCheckout();
-        await homePage.closeAdIfPresent();
+      //   // Step 9 - Proceed to Checkout
+      //   await cartPage.proceedToCheckout();
+      //   await homePage.closeAdIfPresent();
 
-        // Step 10 - Verify address and order details
-        await expect(checkoutPage.deliveryAddressHeading).toBeVisible();
-        await expect(checkoutPage.orderReviewHeading).toBeVisible();
+      //   // Step 10 - Verify address and order details
+      //   await expect(checkoutPage.deliveryAddressHeading).toBeVisible();
+      //   await expect(checkoutPage.orderReviewHeading).toBeVisible();
 
-        // Step 11 - Add comment and place order
-        await checkoutPage.addComment('Test order comment');
-        await checkoutPage.placeOrder();
-        await homePage.closeAdIfPresent();
+      //   // Step 11 - Add comment and place order
+      //   await checkoutPage.addComment('Test order comment');
+      //   await checkoutPage.placeOrder();
+      //   await homePage.closeAdIfPresent();
 
-        // Step 12 - Fill payment details
-        await checkoutPage.fillPaymentDetails(payment);
-        await checkoutPage.confirmPayment();
+      //   // Step 12 - Fill payment details
+      //   await checkoutPage.fillPaymentDetails(payment);
+      //   await checkoutPage.confirmPayment();
 
-        // Step 13 - Verify order placed successfully
-        await expect(checkoutPage.orderSuccessMsg).toBeVisible();
+      //   // Step 13 - Verify order placed successfully
+      //   await expect(checkoutPage.orderSuccessMsg).toBeVisible();
 
-        // Step 14 - Delete account
-        await checkoutPage.clickContinue();
-        await homePage.deleteAccount();
+      //   // Step 14 - Delete account
+      //   await checkoutPage.clickContinue();
+      //   await homePage.deleteAccount();
 
-        // Step 15 - Verify account deleted
-        await expect(registerPage.accountDeletedMsg).toBeVisible();
-        await registerPage.continueAfterCreation();
+      //   // Step 15 - Verify account deleted
+      //   await expect(registerPage.accountDeletedMsg).toBeVisible();
+      //   await registerPage.continueAfterCreation();
 
-      })
+      // })
       
       test('TC16: Place Order - Login before Checkout', async ({ page }) => {
         const homePage     = new HomePage(page);
