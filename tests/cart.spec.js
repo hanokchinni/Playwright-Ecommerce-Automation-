@@ -114,7 +114,7 @@ test.describe('test',()=>{
         await expect(cartPage.emptyCartMsg).toBeVisible();
     });
 
-    test.only('TC20: Search Products and Verify Cart After Login', async ({ page }) => {
+    test('TC20: Search Products and Verify Cart After Login', async ({ page }) => {
         const homePage    = new HomePage(page);
         const productPage = new ProductPage(page);
         const cartPage    = new CartPage(page);
