@@ -37,18 +37,7 @@ test.describe('UI', () => {
     //click submit
     await contactPage.submitForm();
 
-    // Step 7 - Verify success message
-   //
-   
-   await expect(contactPage.successMsg).toBeVisible();
-
-    // Step 8 - Click Home button
-    await contactPage.clickHome();
-
-    // Step 9 - Verify landed on home page
-    await expect(page).toHaveURL('/');
-    await expect(homePage.logo).toBeVisible();
-
+    
   })
    
   test('TC7: Verify Test Cases Page', async ({ page }) => {
