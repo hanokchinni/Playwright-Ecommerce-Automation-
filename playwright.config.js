@@ -46,26 +46,8 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
 
-    {
-      name: 'brave',
-      use: {
-        browserName: 'chromium',
-        executablePath: process.env.CI 
-          ? undefined  // use default chromium on CI
-          : 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe',
-        headless: false,
-        viewport: { width: 1280, height: 720 },
-        launchOptions: {
-      args: [
-        '--disable-notifications',
-        '--disable-popup-blocking',
-        '--disable-extensions',
-        '--no-sandbox',
-        '--disable-web-security',
-      ]
-    }
-      },
-    },
+  
+    
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
